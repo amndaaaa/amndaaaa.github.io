@@ -1,0 +1,101 @@
+/* Reset básico de estilos */
+body, h1, h2, p, ul, li {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo geral do corpo */
+body {
+    background-color: #f0f0f0; /* Cinza Claro */
+    color: #333333; /* Cinza Escuro para texto */
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+/* Estilo do cabeçalho */
+header {
+    background-color: #a3c2e0; /* Azul Pastel Claro */
+    color: #ffffff; /* Branco para contraste */
+    padding: 10px 0;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+nav ul li a {
+    color: #ffffff; /* Branco para contraste */
+    text-decoration: none;
+}
+
+/* Estilo do conteúdo principal */
+main {
+    padding: 20px;
+}
+
+section {
+    margin-bottom: 20px;
+}
+
+/* Estilo das seções */
+#about, #portfolio, #contact {
+    background-color: #ffffff; /* Branco para seções */
+    border: 1px solid #b0b0b0; /* Cinza Neutro para bordas */
+    padding: 20px;
+    border-radius: 8px;
+}
+
+/* Estilo da galeria de portfólio */
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.item {
+    flex: 1 1 calc(50% - 20px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    background: #ffffff; /* Branco para itens */
+    border: 1px solid #b0b0b0; /* Cinza Neutro */
+    border-radius: 8px;
+}
+
+.item img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Estilo dos botões */
+button {
+    background-color: #80b0d0; /* Azul Pastel Médio */
+    color: #ffffff; /* Branco para contraste */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #6490c6; /* Azul Pastel mais escuro para hover */
+}
+
+/* Estilo do rodapé */
+footer {
+    background: #a3c2e0; /* Azul Pastel Claro */
+    color: #ffffff; /* Branco para contraste */
+    text-align: center;
+    padding: 10px 0;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
