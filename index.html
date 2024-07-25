@@ -1,28 +1,94 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página Inicial</title>
+    <title>Amanda Marques - Portfólio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Monami:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="home-page">
     <header>
+        <div class="logo">
+            <h1>Amanda Marques</h1>
+        </div>
         <nav>
             <ul>
-                <li><a href="index.html">Início</a></li>
-                <li><a href="about.html">Sobre</a></li>
-                <li><a href="portfolio.html">Portfólio</a></li>
-                <li><a href="contact.html">Contato</a></li>
+                <li><a href="#" class="nav-link" data-target="inicio">Início</a></li>
+                <li><a href="#" class="nav-link" data-target="sobre">Sobre Mim</a></li>
+                <li><a href="#" class="nav-link" data-target="projetos">Projetos</a></li>
+                <li><a href="#" class="nav-link" data-target="contato">Contato</a></li>
             </ul>
         </nav>
     </header>
     <main>
-        <h1>Bem-vindo ao Meu Site!</h1>
-        <p>Esta é a página inicial.</p>
+        <section id="inicio" class="section active">
+            <h2>Bem-vindo ao Meu Portfólio</h2>
+            <p>Uma breve descrição ou introdução ao seu trabalho.</p>
+        </section>
+        <section id="sobre" class="section">
+            <h2>Sobre Mim</h2>
+            <p>Detalhes sobre você.</p>
+        </section>
+        <section id="projetos" class="section">
+            <h2>Meus Projetos</h2>
+            <div id="portfolio-content"></div>
+        </section>
+        <section id="contato" class="section">
+            <h2>Contato</h2>
+            <p>Informações de contato.</p>
+        </section>
     </main>
     <footer>
-        <p>&copy; 2024 Meu Site</p>
+        <p>&copy; 2024 Amanda Marques</p>
     </footer>
+    <script>
+        // JavaScript para alternar entre seções
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', (event) => {
+                event.preventDefault(); // Evita o comportamento padrão do link
+
+                // Remove a classe 'active' de todas as seções
+                document.querySelectorAll('.section').forEach(section => {
+                    section.classList.remove('active');
+                });
+
+                // Adiciona a classe 'active' à seção correspondente
+                const targetId = link.getAttribute('data-target');
+                document.getElementById(targetId).classList.add('active');
+
+                // Remove a classe 'active' de todos os links
+                document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+                link.classList.add('active');
+
+                if (targetId === 'sobre') {
+                    fetch('about.html')
+                        .then(response => response.text())
+                        .then(data => {
+                            document.getElementById('sobre').innerHTML = data;
+                        })
+                        .catch(error => console.error('Erro ao carregar about.html:', error));
+                }
+
+                if (targetId === 'contato') {
+                    fetch('contact.html')
+                        .then(response => response.text())
+                        .then(data => {
+                            document.getElementById('contato').innerHTML = data;
+                        })
+                        .catch(error => console.error('Erro ao carregar contact.html:', error));
+                }
+
+                if (targetId === 'projetos') {
+                    fetch('portfolio.html')
+                        .then(response => response.text())
+                        .then(data => {
+                            document.getElementById('portfolio-content').innerHTML = data;
+                        })
+                        .catch(error => console.error('Erro ao carregar portfolio.html:', error));
+                }
+            });
+        });
+    </script>
 </body>
 </html>
